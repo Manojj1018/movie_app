@@ -15,7 +15,6 @@ const CardMoviesComponents = ({ data, mediaType }) => {
     const original_language = data.original_language || '';
 
     useEffect(() => {
-        // Check local storage for this item
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         const isLiked = favorites.some(item => item.id === id);
         setLiked(isLiked);

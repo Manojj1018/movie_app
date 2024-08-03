@@ -1,10 +1,9 @@
-
 import RouteComponent from './Route/routes';
 
 function App() {
   return (
     <div className="App">
-      <RouteComponent />
+        <RouteComponent />
     </div>
   );
 }
