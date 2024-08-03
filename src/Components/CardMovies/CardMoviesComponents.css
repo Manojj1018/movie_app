@@ -1,0 +1,19 @@
+.star-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: gray;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+.star-icon.liked {
+    color: gold;
+}
+
+.video-image:hover .star-icon {
+    opacity: 1; 
+}
