@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -12,17 +12,16 @@ const HomeContainer = () => {
     const observer = useRef();
     const API_KEY = process.env.REACT_APP_NOT_SECRET_CODE;
 
-    const GetDataTrending = async () => {
+    const GetDataTrending = useCallback(async () => {
         setLoading(true);
         const { data } = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}&page=${pageno}`);
         setContent(prevContent => [...prevContent, ...data.results]);
         setLoading(false);
-    };
+    }, [API_KEY, pageno]); // Include API_KEY and pageno in dependency array
 
     useEffect(() => {
         GetDataTrending();
-        // eslint-disable-next-line
-    }, [pageno]);
+    }, [GetDataTrending]); // Depend on the memoized function
 
     useEffect(() => {
         if (loading) return;
