@@ -17,3 +17,14 @@
 .video-image:hover .star-icon {
     opacity: 1; 
 }
+
+
+@media (max-width: 767px) {
+    .star-icon {
+        opacity: 1;
+    }
+
+    .video-image:hover .star-icon {
+        opacity: 1; 
+    }
+}
